@@ -254,13 +254,13 @@ With $x_0 =1$. It's exactly the same thing, but it's not simpler to write for ex
 We can write the loss as:
 
 \[
-  Loss = \frac{1}{m} \sum\limits_{i=1}^{m} \left( y^{(i)} - \sum\limits_{j=1}^{p} w_j x_j \right) ^{2}
+  Loss = \frac{1}{m} \sum\limits_{i=1}^{m} \left( y^{(i)} - \sum\limits_{j=1}^{p} w_j x_j^{(i)} \right) ^{2}
 \]
 
 We can also right it as:
 
 \[
-  Loss = \frac{1}{m} \sum\limits_{i=1}^{m} \left( y^{(i)} - \textbf{w}\cdot \textbf{x} \right) ^{2}
+  Loss = \frac{1}{m} \sum\limits_{i=1}^{m} \left( y^{(i)} - \textbf{w}\cdot \textbf{x}^{(i)} \right) ^{2}
 \]
 
 With $\textbf{x} = (x_1, \dots , x_p)$ and $\textbf{w} = (w_1, \dots , w_p)$.
