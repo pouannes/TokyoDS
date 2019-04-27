@@ -176,8 +176,9 @@ Whereas doing the computation in a backward pass would more of:
 
 So you see that even though you end up with the same $10 \times 784$ matrix, you can either get there by doing big matrix calculations (in a forward pass) or smaller ones (in a backward pass).
 
-There are two main Deep Learning frameworks: PyTorch and TensorFlow. Each use different kinds of automatic differentiations engines. PyTorch use \emph{autograd}, while TensorFlow use \emph{graph based differentiation}.
+There are two main Deep Learning frameworks: PyTorch and TensorFlow. Each use different kinds of automatic differentiations engines. PyTorch use \emph{autograd}, while TensorFlow use \emph{graph based differentiation}. 
 
+Note: that was true at the beginning of each framework, but now PyTorch is capable of graph based differentiation, and TensorFlow can use autograd too. 
 
 Let's say you have a simple function: $x^2 + abs(x)$. Then we ask autograd: if $x=7$, what is the gradient? What autograd does is that it replaces the absolute value: $x^2 + x$, and then compute the gradient: $2x + 1$. So with $x=7$, you get $15$.
 
@@ -187,10 +188,7 @@ Even though you have to compute the differentiation every times with autograd, w
 
 Good exercise: cs321n's homework of designing a Neural Net in NumPy. 
 
-Note: these days, PyTorch also uses Graph based diff, and TF also uses autograd.
-
-
-\subsection{Overfitting and regressions}
+\subsection{Overfitting and Regressions}
 
 \begin{figure}[h]
   \includegraphics[scale=0.7]{fittings}
@@ -231,7 +229,7 @@ Then you probably won't overfit. However, if you have a linear regression with a
 
 Then you may overfit. One example of that may be a survey. 
 
-\subsubsection{Multivariate regression}
+\subsubsection{Multivariate Regression}
 
 Multivariate regression is something like:
 
@@ -342,7 +340,7 @@ In neural networks, the $\alpha \left\lVert \textbf{w} \right\rVert_2 ^{2}$ term
 
 In a large model, there might be a lot of parameters and we might want a sparser representation: with a lot of parameters set to $0$. There is a kind of regression that does that: \emph{Lasso regression}.
 
-\subsubsection{Lasso regression ($L^1$ regularization)}
+\subsubsection{Lasso Regression ($L^1$ regularization)}
 
 Let's take the $L^1$ norm instead of $L^2$:
 
@@ -382,6 +380,9 @@ This time, we use both $L^1$ loss \emph{and} $L^2$ loss:
 \[
   Loss = \frac{1}{m} \left\lVert X \cdot \textbf{w} - \textbf{y} \right\rVert_2 ^{2} + \alpha_1 \left\lVert \textbf{w} \right\rVert_1 + \alpha_2 \left\lVert \textbf{w} \right\rVert_2 ^{2}
 \]
+
+Here, $L^1$ loss is used for sparcity of coefficients, and $L^2$ loss to make sure there's no coefficient that is too high. 
+
 
 
 
