@@ -369,10 +369,19 @@ However, Lasso can set $w_2$ to $0$ even though it doesn't make intuitive sense 
 
 What can happens is that $x_1$ and $x_2$ can be highly correlated: people that study a lot study a lot for both micro and macro, and people that don't study a lot don't study a lot for both micro and macro. So there's two features that are really the same, and the Lasso regression doesn't really know which one to pick and might pick to wrong one based on nothing else than noise. 
 
-To say that another way: a parameter equals to 0 in Lasso regression might indeed not be relevant, but also it might be the case that it's just highly correlated with another parameter and Lasso choose the other one. 
+To say that another way: a parameter equals to 0 in Lasso regression might indeed not be relevant, but also it might be the case that it's just highly correlated with another parameter and Lasso choose the other one. This phenomenon is also sometimes called \emph{multicollinerarity}.
 
 So Lasso regression is great for getting parsimonious predictions but not that useful to learn about causal relationships. 
 
+\subsubsection{Elastic Net ($L^1$ and $L^2$ regularization)}
+
+(nothing to do with Neural Nets)
+
+This time, we use both $L^1$ loss \emph{and} $L^2$ loss: 
+
+\[
+  Loss = \frac{1}{m} \left\lVert X \cdot \textbf{w} - \textbf{y} \right\rVert_2 ^{2} + \alpha_1 \left\lVert \textbf{w} \right\rVert_1 + \alpha_2 \left\lVert \textbf{w} \right\rVert_2 ^{2}
+\]
 
 
 
