@@ -3,7 +3,6 @@
 *.fls
 *.log
 *.out
-*.tex
 *.toc
 *.gz
 *.jpg
